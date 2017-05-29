@@ -1,0 +1,143 @@
+fields:
+    name:
+        label: 'samubra.train::lang.apply.name'
+        oc.commentPosition: ''
+        span: auto
+        disabled: 1
+        type: text
+    photo:
+        label: 照片
+        oc.commentPosition: ''
+        mode: image
+        imageWidth: '90'
+        imageHeight: '100'
+        useCaption: true
+        thumbOptions:
+            mode: crop
+            extension: auto
+        span: auto
+        required: 0
+        type: fileupload
+    identity:
+        label: 'samubra.train::lang.apply.identity'
+        oc.commentPosition: ''
+        span: left
+        disabled: 1
+        type: text
+    is_reviewed:
+        label: 'samubra.train::lang.record.is_reviewed'
+        span: right
+        default: 0
+        disabled: 1
+        type: switch
+    record_type:
+        label: 'samubra.train::lang.plan.type_id'
+        oc.commentPosition: ''
+        nameFrom: name
+        descriptionFrom: type
+        span: left
+        disabled: 1
+        type: relation
+    print_date:
+        label: 'samubra.train::lang.record.print_date'
+        oc.commentPosition: ''
+        mode: date
+        yearRange: '6'
+        span: left
+        disabled: 1
+        type: datepicker
+tabs:
+    fields:
+
+        'pivot[name]':
+            label: 'samubra.train::lang.apply.name'
+            oc.commentPosition: ''
+            span: auto
+            disabled: 0
+            hidden: 0
+            required: 1
+            context:
+                - create
+                - preview
+            defaultFrom: name
+            trigger:
+                action: disable
+                field: name
+            type: text
+            tab: 申请信息
+        'pivot[identity]':
+            label: 'samubra.train::lang.apply.identity'
+            oc.commentPosition: ''
+            span: auto
+            disabled: 0
+            hidden: 0
+            required: 1
+            context:
+                - create
+                - preview
+            defaultFrom: identity
+            type: text
+            tab: 申请信息
+        'pivot[phone]':
+            label: 'samubra.train::lang.apply.phone'
+            oc.commentPosition: ''
+            span: auto
+            type: text
+            tab: 申请信息
+        'pivot[address]':
+            label: 'samubra.train::lang.apply.address'
+            oc.commentPosition: ''
+            span: auto
+            type: text
+            tab: 申请信息
+        'pivot[company]':
+            label: 'samubra.train::lang.apply.company'
+            oc.commentPosition: ''
+            span: auto
+            default: 个体
+            type: text
+            tab: 申请信息
+        'pivot[edu]':
+            label: 'samubra.train::lang.apply.edu_id'
+            oc.commentPosition: ''
+            nameFrom: name
+            descriptionFrom: description
+            span: auto
+            type: relation
+            tab: 申请信息
+        'pivot[health]':
+            label: 'samubra.train::lang.apply.health_id'
+            oc.commentPosition: ''
+            nameFrom: name
+            descriptionFrom: description
+            span: auto
+            type: relation
+            tab: 受理信息
+        'pivot[remark]':
+            label: 申请备注信息
+            oc.commentPosition: ''
+            prompt: 添加备注
+            span: right
+            type: repeater
+            tab: 受理信息
+            form:
+                fields:
+                    'pivot[remark]':
+                        label: 申请备注信息
+                        oc.commentPosition: ''
+                        span: full
+                        type: text
+        'pivot[apply_status]':
+            label: 'samubra.train::lang.apply.status_id'
+            oc.commentPosition: ''
+            nameFrom: name
+            descriptionFrom: description
+            span: left
+            type: relation
+            tab: 受理信息
+        'pivot[pay]':
+            label: 'samubra.train::lang.apply.pay'
+            oc.commentPosition: ''
+            span: left
+            type: number
+            tab: 受理信息
